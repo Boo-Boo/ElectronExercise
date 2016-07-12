@@ -1,0 +1,12 @@
+{
+  "name": "testApp",
+  "version": "0.0.1",
+  "description": "WebサイトへのアクセスとローカルPCの実行ファイル起動が同じアプリでできるか検証する",
+  "main": "testApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

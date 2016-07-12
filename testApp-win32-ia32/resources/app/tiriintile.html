@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>国土地理院地図</title>
+
+<!-- ElectronでwebViewの簡易ブラウザをつくってみる -->
+<!-- http://qiita.com/mamo/items/084039c3e6d703b7b45f -->
+
+ <script>
+
+ "use strict";
+ function init(){
+  // reset_webview_wrapper
+  var webview_wrapper = document.getElementById("webview_wrapper");
+  webview_wrapper.removeChild(webview_wrapper.lastChild);
+
+  // get url
+  var url = "http://localhost:8080/tile.html";
+
+  // create_new_webview_instanse
+  var newWebview = document.createElement("webview");
+  newWebview.id = "foo";
+  newWebview.setAttribute("src",url);
+  newWebview.setAttribute("style", "width:1000px; height:600px");
+  // append new_webview
+  webview_wrapper.appendChild(newWebview);
+ }
+ function boot(){
+   const exec = require('child_process').execFile;
+   var command = document.getElementById("cmd").value;
+   exec(command, (error, stdout, stderr) => {
+     // なんかエラー処理を書く
+     // 入力されたファイルが見つかりませんと返すとか
+   });
+ }
+ </script>
+
+</head>
+<body onload="init()">
+    <h1>国土地理地図</h1>
+   <p><a href="index.html">最初の画面にもどる</a></p>
+ <div id="menu-bar">
+   <input type="text" id="cmd" value=C:\windows\system32\notepad.exe></input>
+   <button onclick="boot();">ローカルファイル起動</button>
+ </div>
+ <div id="webview_wrapper">
+ </div>
+
+
+
+</html>
+</body>
+</html>

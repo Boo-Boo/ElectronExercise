@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GoogleMaps</title>
+
+    <link rel="stylesheet" href="googlemaps.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key={AIzaSyBa98RrvzO9fodJ_lMM8iAwTvY1fxa4s3Q}"></script>
+    <script src="googlemaps.js"></script>
+
+    <script>
+
+    "use strict";
+    function init(){
+     // reset_webview_wrapper
+     var webview_wrapper = document.getElementById("webview_wrapper");
+     webview_wrapper.removeChild(webview_wrapper.lastChild);
+
+     // get url
+     var url = "https://www.google.co.jp/maps/@26.2360219,127.704548,15.75z?hl=ja";
+
+     // create_new_webview_instanse
+     var newWebview = document.createElement("webview");
+     newWebview.id = "foo";
+     newWebview.setAttribute("src",url);
+     newWebview.setAttribute("style", "width:1000px; height:600px");
+     // append new_webview
+     webview_wrapper.appendChild(newWebview);
+    }
+
+    function boot(){
+      const exec = require('child_process').execFile;
+      var command = document.getElementById("cmd").value;
+      exec(command, (error, stdout, stderr) => {
+        // なんかエラー処理を書く
+        // 入力されたファイルが見つかりませんと返すとか
+      });
+    }
+
+
+    </script>
+
+</head>
+<body onload="init()" >
+  <h1>グーグルマップ</h1>
+  <p><a href="index.html">最初の画面にもどる</a></p>
+
+    <div id="menu-bar">
+      <input type="text" id="cmd" value=C:\windows\system32\notepad.exe></input>
+      <button onclick="boot();">ローカルファイル起動</button>
+    </div>
+
+  <div id="webview_wrapper" >
+  </div>
+
+</body>
+</html>
